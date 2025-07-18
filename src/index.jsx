@@ -115,16 +115,19 @@ const Header = () => {
 const Hero = () => {
     return (
         <section className="bg-gray-800 text-white text-center py-20 px-6 animate-fadeIn">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Schemly - Laravel Code Generator</h2>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-300">
-                A powerful Laravel code generator written in Rust that creates models, controllers, resources, factories, migrations, and pivot tables from YAML configuration files.
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Schemly</h2>
+            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 text-gray-300">
+                Schemly is a command-line tool built with Rust for maximum performance and reliability. It streamlines Laravel development by automating the creation of essential code components like models, controllers, and migrations directly from simple, human-readable YAML files.
             </p>
-            <a href="#about" className="bg-blue-500 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-600 transition duration-300 transform hover:scale-105 shadow-lg">
-                Learn More
+
+            <p className="mb-4 text-gray-400 text-lg font-light">Supports Apple Silicom and Windows x64</p>
+            <a target="_blank" href="https://github.com/DevPlus31/schemly/releases" className="bg-blue-500 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-600 transition duration-300 transform hover:scale-105 shadow-lg">
+                Download
             </a>
         </section>
     );
 };
+
 
 // A wrapper component to apply the scroll animation
 const AnimatedSection = ({ children }) => {
@@ -144,20 +147,6 @@ const AnimatedSection = ({ children }) => {
     );
 };
 
-const About = () => {
-    return (
-        <section id="about" className="py-20 px-6 bg-gray-50">
-            <div className="container mx-auto">
-                <AnimatedSection>
-                    <h3 className="text-3xl font-bold text-center text-gray-800 mb-8">About the Project</h3>
-                    <p className="max-w-3xl mx-auto text-center text-gray-600 text-lg">
-                        Schemly is a command-line tool built with Rust for maximum performance and reliability. It streamlines Laravel development by automating the creation of essential code components like models, controllers, and migrations directly from simple, human-readable YAML files.
-                    </p>
-                </AnimatedSection>
-            </div>
-        </section>
-    );
-};
 
 const FeatureCard = ({ icon, title, children }) => {
     return (
@@ -217,7 +206,6 @@ export default function App() {
             <Header />
             <main>
                 <Hero />
-                <About />
                 <Features />
             </main>
             <Footer />
