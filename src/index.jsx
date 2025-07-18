@@ -120,7 +120,7 @@ const Hero = () => {
                 Schemly is a command-line tool built with Rust for maximum performance and reliability. It streamlines Laravel development by automating the creation of essential code components like models, controllers, and migrations directly from simple, human-readable YAML files.
             </p>
 
-            <p className="mb-4 text-gray-400 text-lg font-light">Supports Apple Silicom and Windows x64</p>
+            <p className="mb-4 text-gray-400 text-lg font-light">Supports Apple Silicom and Windows x86-64</p>
             <a target="_blank" href="https://github.com/DevPlus31/schemly/releases" className="bg-blue-500 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-600 transition duration-300 transform hover:scale-105 shadow-lg">
                 Download
             </a>
