@@ -93,16 +93,16 @@ const TableIcon = () => (
 // --- Page Section Components ---
 
 const Header = () => {
+
     return (
-        <header className="bg-white shadow-md sticky top-0 z-50">
+        <header className="bg-gray-800 shadow-md text-white  top-0 z-50">
             <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                 <div className="flex items-center space-x-3">
                     <BoxIcon />
-                    <h1 className="text-2xl font-bold text-gray-800">Schemly</h1>
+                    <h1 className="text-2xl font-bold">Schemly</h1>
                 </div>
                 <nav className="hidden md:flex items-center space-x-6">
-                    <a href="#about" className="text-gray-600 hover:text-blue-500 transition duration-300">About</a>
-                    <a href="#features" className="text-gray-600 hover:text-blue-500 transition duration-300">Features</a>
+                    <a href="#features" className="text-gray-200 hover:text-blue-500 transition duration-300">Features</a>
                     <a href="https://github.com/DevPlus31/schemly" target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 shadow-sm">
                         View on GitHub
                     </a>
@@ -112,7 +112,41 @@ const Header = () => {
     );
 };
 
+const TabComponent = ({ tabs, activeTab, onTabChange }) => {
+    return (
+        <div className="w-full max-w-md mx-auto mb-6">
+            <div className="flex bg-gray-700 rounded-lg p-1">
+                {tabs.map((tab) => (
+                    <button
+                        key={tab.id}
+                        onClick={() => onTabChange(tab.id)}
+                        className={classNames(
+                            "flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all duration-200",
+                            activeTab === tab.id
+                                ? "bg-blue-500 text-white shadow-sm"
+                                : "text-gray-300 hover:text-white hover:bg-gray-600"
+                        )}
+                    >
+                        {tab.label}
+                    </button>
+                ))}
+            </div>
+            <div className="mt-4 bg-gray-900 rounded-lg p-4 border border-gray-600">
+                <code className="text-green-400 text-sm font-mono">
+                    {tabs.find(tab => tab.id === activeTab)?.command}
+                </code>
+            </div>
+        </div>
+    );
+};
+
 const Hero = () => {
+    const [activeTab, setActiveTab] = useState('brew');
+    const installTabs = [
+        { id: 'brew', label: 'macOS', command: 'brew tap DevPlus31/homebrew-schemly && brew install devplus31/schemly' },
+        // { id: 'winget', label: 'Windows', command: 'winget install DevPlus31.Schemly' },
+        { id: 'winget', label: 'Windows', command: 'Soon! Check Github Releases.' }
+    ];
     return (
         <section className="bg-gray-800 text-white text-center py-20 px-6 animate-fadeIn">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Schemly</h2>
@@ -120,10 +154,14 @@ const Hero = () => {
                 Schemly is a command-line tool built with Rust for maximum performance and reliability. It streamlines Laravel development by automating the creation of essential code components like models, controllers, and migrations directly from simple, human-readable YAML files.
             </p>
 
-            <p className="mb-4 text-gray-400 text-lg font-light">Supports Apple Silicom and Windows x86-64</p>
-            <a target="_blank" href="https://github.com/DevPlus31/schemly/releases" className="bg-blue-500 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-600 transition duration-300 transform hover:scale-105 shadow-lg">
-                Download
-            </a>
+            <p className="mb-4 text-gray-400 text-lg font-light">Supports Apple Silicom and Windows x86-64/ARM64</p>
+ 
+            <TabComponent 
+                tabs={installTabs}
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+            />
+
         </section>
     );
 };
@@ -189,9 +227,9 @@ const Features = () => {
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-800 text-white text-center py-6">
+        <footer className="bg-white text-gray-800 text-center py-6">
             <div className="container mx-auto">
-                <p>&copy; {new Date().getFullYear()} DevPlus31. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} DevPlus31 — Released under the <a target="_blank" href="https://github.com/DevPlus31/schemly/blob/main/LICENSE">MIT License</a> </p>
             </div>
         </footer>
     );
