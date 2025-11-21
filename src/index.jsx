@@ -148,7 +148,7 @@ const Hero = () => {
         { id: 'winget', label: 'Windows', command: 'Soon! Check Github Releases.' }
     ];
     return (
-        <section className="bg-gray-800 text-white text-center py-20 px-6 animate-fadeIn">
+        <section className="bg-gray-800 text-white text-center py-20 px-6">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Schemly</h2>
             <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 text-gray-300">
                 Schemly is a command-line tool built with Rust for maximum performance and reliability. It streamlines Laravel development by automating the creation of essential code components like models, controllers, and migrations directly from simple, human-readable YAML files.
@@ -200,9 +200,6 @@ const Features = () => {
     const projectFeatures = [
         { icon: <RustIcon />, title: "Blazing Fast & Reliable", description: "Built with Rust for maximum performance and safety." },
         { icon: <CodeIcon />, title: "YAML Configuration", description: "Define your models in simple, readable YAML." },
-        { icon: <LayersIcon />, title: "Complete Laravel Support", description: "Generates all necessary Laravel components." },
-        { icon: <ShieldIcon />, title: "Safe by Default", description: "Won't overwrite existing files unless forced." },
-        { icon: <TargetIcon />, title: "Selective Generation", description: "Choose exactly which components to generate." },
         { icon: <LinkIcon />, title: "Relationship Support", description: "Full support for all Laravel relationship types." },
         { icon: <TableIcon />, title: "Pivot Tables", description: "Automatic pivot table generation for many-to-many." },
     ];
